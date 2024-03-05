@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">
+        <img src="asset/logo_template.png" alt="" />
+        <p>brand name</p>
+      </div>
+      <div class="search_bar">
+        <input type="text" id="searchInput" class="search-input" placeholder="Apa yang kamu cari?" />
+        <img src="asset/magnifying_glass.svg" alt="" />
+      </div>
+      <div class="right_corner_menu">
+        <img src="asset/icon _person_.svg" alt="" />
+        <img src="asset/icon _cart_.svg" alt="" />
+      </div>
+    </div>
+    <div class="menu">
+      <ul>
+        <li>promo</li>
+        <li><a href="#new-product-section">terbaru</a></li>
+        <li><a href="#category-section">kategori</a></li>
+        <li>kontak</li>
+        <li class="menu_icon"><img src="asset/icon_menu.svg" alt="" /></li>
+      </ul>
+    </div>
+    <div class="menu-burger-list" id="menu-burger">
+      <ul>
+        <li>promo</li>
+        <li>terbaru</li>
+        <li>kategori</li>
+        <li>kontak</li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        <p><img src="asset/icon _fire_.svg" alt="" />hot deals</p>
+        <p>nikmati pedasnya sambal pilihan hanya Rp.59.000</p>
+        <button>beli sekarang <img src="asset/icon _arrow thick right_.svg" alt="" /></button>
+      </div>
+      <div class="content_image">
+        <img src="asset/content_img.svg" alt="" />
+      </div>
+    </div>
+    <div class="new-product" id="new-product-section">
+      <div class="content">
+        <div class="new-product-list">
+          <ul>
+            <li>
+              <h2>produk terbaru</h2>
+            </li>
+            <li>
+              <div class="product-list-item">
+                <div class="list-image">
+                  <img src="asset/foodtemplate.png" alt="" />
+                  <p>Rp.29.000</p>
+                </div>
+                <div class="description">
+                  <p class="title">saos sambal lv 1</p>
+                  <p class="product-desc">Nikmati kelezatan pasta bolognese kami dengan saus tomat segar dan daging sapi pilihan. Sempurna untuk selera makan yang istimewa!</p>
+                  <button>
+                    <i><img src="asset/icon_add.svg" alt="" /></i> Tambah ke keranjang
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="product-list-item">
+                <div class="list-image">
+                  <img src="asset/foodtemplate.png" alt="" />
+                  <p>Rp.29.000</p>
+                </div>
+                <div class="description">
+                  <p class="title">saos sambal lv 1</p>
+                  <p class="product-desc">Nikmati kelezatan pasta bolognese kami dengan saus tomat segar dan daging sapi pilihan. Sempurna untuk selera makan yang istimewa!</p>
+                  <button>
+                    <i><img src="asset/icon_add.svg" alt="" /></i> Tambah ke keranjang
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <p class="other">Lihat Selengkapnya</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="category" id="category-section">
+      <div class="content">
+        <h2>Kategori</h2>
+        <div class="category-list">
+          <div class="category-list-item">
+            <img src="asset/foodtemplate2.png" alt="" />
+            <p>Saos</p>
+            <button>jelajahi sekarang</button>
+          </div>
+          <div class="category-list-item">
+            <img src="asset/foodtemplate2.png" alt="" />
+            <p>Saos</p>
+            <button>jelajahi sekarang</button>
+          </div>
+          <div class="category-list-item">
+            <img src="asset/foodtemplate2.png" alt="" />
+            <p>Saos</p>
+            <button>jelajahi sekarang</button>
+          </div>
+        </div>
+        <p class="other">tampilkan seluruh produk</p>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Select all links with the attribute href starting with "#"
+        var scrollLinks = document.querySelectorAll('a[href^="#"]');
+        // Get the elements
+        var clickMe = document.querySelector(".menu_icon");
+        var targetElement = document.getElementById("menu-burger");
+
+        // Add a click event listener to the 'click-me' element
+        clickMe.addEventListener('click', function() {
+            // Toggle the 'display' property of the target element
+            if (targetElement.style.display === 'none') {
+                targetElement.style.display = 'inline-block';
+            } else {
+                targetElement.style.display = 'none';
+            }
+        });
+        // Smooth scroll function
+        function smoothScroll(targetId) {
+          var targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: "smooth",
+            });
+          }
+        }
+
+        // Add click event listeners to all scroll links
+        scrollLinks.forEach(function (scrollLink) {
+          scrollLink.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            // Extract the target id from the href attribute
+            var targetId = this.getAttribute("href").substring(1);
+
+            // Call the smoothScroll function with the target id
+            smoothScroll(targetId);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
